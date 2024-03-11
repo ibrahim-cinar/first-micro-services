@@ -1,0 +1,26 @@
+package com.cinar.student;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/v1/student")
+public class StudentController {
+    private final StudentService studentService;
+
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
+    }
+    @GetMapping
+    public ResponseEntity<List<Student>> findAllStudents(){
+        return ResponseEntity.ok(studentService.findAllStudents());
+    }
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public void save(Student student){
+        studentService.save(student);
+    }
+}
