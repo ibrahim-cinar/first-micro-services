@@ -1,0 +1,32 @@
+eureka:
+  instance:
+    hostname: localhost
+    lease-renewal-interval-in-seconds: 0
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+server:
+  port: 8070
+
+spring:
+  application:
+    name: schools
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/schools
+    username: cinar
+    password: cinar-1907
+  jpa:
+    hibernate:
+      ddl-auto: update
+      database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+  sql.init:
+    mode: always
+  application.config:
+    students-url: http://localhost:8222/api/v1/student
+management:
+  tracing:
+    sampling:
+      probability: 1.0
