@@ -18,9 +18,15 @@ public class SchoolController {
     public ResponseEntity<List<School>> findAllSchools(){
         return ResponseEntity.ok(schoolService.findAllSchools());
     }
-    @PostMapping
+
+    @GetMapping("/with-students/{schoolId}")
+    public ResponseEntity<FullSchoolResponse> findSchoolsWithStudents(@PathVariable("schoolId") Integer schoolId){
+        return ResponseEntity.ok(schoolService.findSchoolsWithStudents(schoolId));
+    }
+
+    @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public void save(School school){
+    public void save(@RequestBody School school){
         schoolService.save(school);
     }
 }

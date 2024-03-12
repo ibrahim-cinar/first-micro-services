@@ -18,9 +18,13 @@ public class StudentController {
     public ResponseEntity<List<Student>> findAllStudents(){
         return ResponseEntity.ok(studentService.findAllStudents());
     }
+    @GetMapping("/school/{schoolId}")
+    public ResponseEntity<List<Student>> findAllStudentsBySchoolId(@PathVariable("schoolId") Integer schoolId){
+        return ResponseEntity.ok(studentService.findAllStudentsBySchoolId(schoolId));
+    }
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void save(Student student){
+    public void save(@RequestBody Student student){
         studentService.save(student);
     }
 }

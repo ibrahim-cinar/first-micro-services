@@ -14,8 +14,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "schools")
 public class School {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String name;
     private String email;
 

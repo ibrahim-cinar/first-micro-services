@@ -14,12 +14,13 @@ import lombok.NoArgsConstructor;
 @Table(name = "students")
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private Integer studentNumber;
     private String email;
+    private Integer schoolId;
 
 }
