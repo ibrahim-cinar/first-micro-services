@@ -25,9 +25,14 @@ public class SchoolService {
 
     public FullSchoolResponse findSchoolsWithStudents(Integer schoolId) {
         var school = schoolRepository.findById(schoolId)
-                .orElse(School.builder().name("Not Found").email("Not Found").build());
+                .orElse(
+                        School.builder()
+                                .name("Not Found")
+                                .email("Not Found")
+                                .build());
         var students = client.findAllStudentsBySchoolId(schoolId);
 
-        return FullSchoolResponse.builder().name(school.getName()).email(school.getEmail()).students(students).build();
+        return FullSchoolResponse.builder().name(school.getName())
+                .email(school.getEmail()).students(students).build();
     }
 }

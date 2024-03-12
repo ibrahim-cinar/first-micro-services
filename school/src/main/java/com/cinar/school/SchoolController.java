@@ -19,10 +19,11 @@ public class SchoolController {
         return ResponseEntity.ok(schoolService.findAllSchools());
     }
 
+
     @GetMapping("/with-students/{schoolId}")
-    public ResponseEntity<FullSchoolResponse> findSchoolsWithStudents(@PathVariable("schoolId") Integer schoolId){
-        return ResponseEntity.ok(schoolService.findSchoolsWithStudents(schoolId));
-    }
+    public ResponseEntity<FullSchoolResponse> findSchoolsWithStudents(@PathVariable Integer schoolId) {
+   return ResponseEntity.ok(schoolService.findSchoolsWithStudents(schoolId));
+}
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
